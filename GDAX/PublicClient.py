@@ -47,7 +47,8 @@ class PublicClient(object):
                              prevPageId=prevPage)
 
     def getProducts(self):
-        return self.makeRequest('/products')
+        response = self.makeRequest('/products').json()
+        return response.json()
 
     def getProductOrderBook(self, json=None, level=2, product=''):
         if isinstance(json, dict):
